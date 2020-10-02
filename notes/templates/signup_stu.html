@@ -37,6 +37,17 @@
          }
 {% endblock %}
 {% block body %}
+     {% ifequal error "no" %}
+        <script> alert('Successfully Registered')
+        window.location=('{% url 'login' %}')
+        </script>
+    {% endifequal %}
+
+    {% ifequal error "yes" %}
+      <script>
+        alert('Cant add user');
+        </script>
+    {% endifequal %}
   <div class="container  mt-3">
         <div class="row mb-5">
             <div class="col-md-6">
@@ -51,7 +62,7 @@
             <div class="col-md-6">
                 <h2 class="text-center">Register Student</h2>
                 <hr>
-                <form method="post">
+                <form method="POST">
                     {% csrf_token %}
                     <label> First Name </label>
                     <input type="text" name="f_name" class="form-control"   placeholder="Enter First name">

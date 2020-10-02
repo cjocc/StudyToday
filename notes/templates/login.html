@@ -37,6 +37,17 @@
          }
 {% endblock %}
 {% block body %}
+       {% ifequal error "no" %}
+        <script> alert('Successfully logged in')
+        window.location=('{% url 'profile' %}')
+        </script>
+    {% endifequal %}
+
+    {% ifequal error "yes" %}
+      <script>
+        alert('Invalid credentials');
+        </script>
+    {% endifequal %}
   <div class="container  mt-5">
         <div class="row mb-5">
             <div class="col-md-6">
