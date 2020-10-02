@@ -1,0 +1,67 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block title %} About us {% endblock %}
+{% block css %}
+.col-md-3
+        {
+            display: inline-block;
+            margin-left:-4px;
+        }
+        .carousel-indicators .active
+        {
+            background-color: blue;
+        }
+        .col-md-3 img
+        {
+            width:100%;
+            height:auto;
+        }
+        body .carousel-indicator li
+        {
+            background-color: blue;
+        }
+        body .carousel-indicators{
+            bottom: 0;
+        }
+        body .carousel-control-prev-icon,
+        body .carousel-control-next-icon{
+            background-color: blue;
+        }
+        body .no-padding{
+            padding-left: 0,
+            padding-right: 0;
+        }
+        .col-md-3 img{
+         width: 285px;
+         height: 250px;
+         }
+      .contact{
+      font-size:40px;
+      font-family: 'Times new roman';
+    }
+
+{% endblock %}
+{% block body %}
+    <div class="container text-center">
+        <div class="contact mt-4 bg-dark text-white">
+            Contact Us
+        </div>
+    </div>
+     <div class="container  mt-5 ">
+        <div class="row mb-5">
+           <div class="col-md-6 text-center">
+               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8486.588207088384!2d79.52376875629616!3d17.98195859589942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a334fbb37aee6c3%3A0xf1b2c37fcb8fefce!2sNational%20Institute%20of%20Technology%2C%20Warangal%2C%20Telangana!5e0!3m2!1sen!2sin!4v1601580419164!5m2!1sen!2sin" width="350" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+           </div>
+            <div class="col-md-6 mt-4">
+               <p><i class="fas fa-envelope">  Email Id :</i> StudyToday@gmail.com</p>
+               <p><i class="fas fa-phone-square">  Phone no. :</i> 789456123 </p>
+                <p><i class="fas fa-address-card">  Address :</i> NIT Warangal,<br>       Telangana,<br>      India</p>
+                <p><i class="fas fa-clock"></i> Available 24 hours 7 days a week</p>
+                <a href="#"><i class="fab fa-facebook-f px-2"></i></a>
+                 <a href="#"><i class="fab fa-twitter px-2"></i></a>
+                 <a href="#"><i class="fab fa-whatsapp px-2"></i></a>
+                 <a href="#"><i class="fab fa-instagram px-2"></i></a>
+            </div>
+        </div>
+     </div>
+{% endblock %}

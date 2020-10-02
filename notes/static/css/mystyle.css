@@ -1,0 +1,32 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+.halfcircle{
+    height: 75px;
+    width: 150px;
+    border-radius: 90px 90px 0 0;
+    margin:0px;
+  background-image: linear-gradient(orange, lightsalmon)
+}
+.halfcircle_bot{
+    height: 75px;
+    width: 150px;
+    border-radius: 0 0 90px 90px;
+    margin:0px;
+     background-image: linear-gradient(lightsalmon,yellow)
+}
+.b1 p{
+    font-weight:bold ;
+    font-family: 'Monotype Corsiva';
+    text-align: center;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

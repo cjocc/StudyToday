@@ -1,0 +1,74 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block title %} About us {% endblock %}
+{% block css %}
+.col-md-3
+        {
+            display: inline-block;
+            margin-left:-4px;
+        }
+        .carousel-indicators .active
+        {
+            background-color: blue;
+        }
+        .col-md-3 img
+        {
+            width:100%;
+            height:auto;
+        }
+        body .carousel-indicator li
+        {
+            background-color: blue;
+        }
+        body .carousel-indicators{
+            bottom: 0;
+        }
+        body .carousel-control-prev-icon,
+        body .carousel-control-next-icon{
+            background-color: blue;
+        }
+        body .no-padding{
+            padding-left: 0,
+            padding-right: 0;
+        }
+        .col-md-3 img{
+         width: 285px;
+         height: 250px;
+         }
+{% endblock %}
+{% block body %}
+  <div class="container  mt-3">
+        <div class="row mb-5">
+            <div class="col-md-6">
+            <h2 class="text-center">Existing user</h2>
+            <hr>
+            <p>
+                By signing to StudyTodays.com you can get the access to thousand
+                of study material on different subjects and topics....
+            </p>
+                <a href="{% url 'login' %}" class="btn btn-danger text-white text-center mt-3">Go to Login</a>
+            </div>
+            <div class="col-md-6">
+                <h2 class="text-center">Register faculty</h2>
+                <hr>
+                <form method="post">
+                    {% csrf_token %}
+                    <label> First Name </label>
+                    <input type="text" name="f_name" class="form-control"   placeholder="Enter First name">
+                    <label> Last Name </label>
+                    <input type="text" name="l_name" class="form-control"   placeholder="Enter Last name">
+                    <label> Contact </label>
+                    <input type="number" name="m_number" class="form-control"   placeholder="Enter mobile  ">
+                    <label> Email Id</label>
+                    <input type="email" name="email_id" class="form-control"   placeholder="Enter email">
+                    <label> Password </label>
+                    <input type="password" name="password" class="form-control"  placeholder="Enter Password">
+                    <label>Faculty Id </label>
+                    <input type="number" name="fac_id" class="form-control"  placeholder="Enter faculty id">
+                    <input type="submit" class="btn btn-danger text-white mt-3">
+                </form>
+
+            </div>
+        </div>
+  </div>
+{% endblock %}

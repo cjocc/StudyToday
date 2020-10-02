@@ -1,0 +1,67 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block title %} About us {% endblock %}
+{% block css %}
+.col-md-3
+        {
+            display: inline-block;
+            margin-left:-4px;
+        }
+        .carousel-indicators .active
+        {
+            background-color: blue;
+        }
+        .col-md-3 img
+        {
+            width:100%;
+            height:auto;
+        }
+        body .carousel-indicator li
+        {
+            background-color: blue;
+        }
+        body .carousel-indicators{
+            bottom: 0;
+        }
+        body .carousel-control-prev-icon,
+        body .carousel-control-next-icon{
+            background-color: blue;
+        }
+        body .no-padding{
+            padding-left: 0,
+            padding-right: 0;
+        }
+        .col-md-3 img{
+         width: 285px;
+         height: 250px;
+         }
+{% endblock %}
+{% block body %}
+  <div class="container  mt-5">
+        <div class="row mb-5">
+            <div class="col-md-6">
+            <h2 class="text-center">New User</h2>
+            <hr>
+            <p>
+                By signing to StudyTodays.com you can get the access to thousand
+                of study material on different subjects and topics....
+            </p>
+                <a href="{% url 'signup_stu' %}" class="btn btn-danger text-white text-center mt-3">Create Student Account</a>
+                <a href="{% url 'signup_fac' %}" class="btn btn-danger text-white text-center mt-3 ml-5">Create Faculty Account</a>
+            </div>
+            <div class="col-md-6" sytle="border-left:1px black">
+                <h2 class="text-center">User login</h2>
+                <hr>
+                <form method="post">
+                    {% csrf_token %}
+                    <label> Email Id </label>
+                    <input type="email" name="email_id" class="form-control"   placeholder="Enter email id">
+                    <label> Password </label>
+                    <input type="password" name="passwd" class="form-control"  placeholder="Enter Password">
+                    <input type="submit" class="btn btn-danger text-white mt-3">
+                </form>
+
+            </div>
+        </div>
+  </div>
+{% endblock %}

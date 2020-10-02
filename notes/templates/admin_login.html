@@ -1,0 +1,72 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block title %} About us {% endblock %}
+{% block css %}
+.col-md-3
+        {
+            display: inline-block;
+            margin-left:-4px;
+        }
+        .carousel-indicators .active
+        {
+            background-color: blue;
+        }
+        .col-md-3 img
+        {
+            width:100%;
+            height:auto;
+        }
+        body .carousel-indicator li
+        {
+            background-color: blue;
+        }
+        body .carousel-indicators{
+            bottom: 0;
+        }
+        body .carousel-control-prev-icon,
+        body .carousel-control-next-icon{
+            background-color: blue;
+        }
+        body .no-padding{
+            padding-left: 0,
+            padding-right: 0;
+        }
+        .col-md-3 img{
+         width: 285px;
+         height: 250px;
+         }
+{% endblock %}
+{% block body %}
+    {% ifequal error "no" %}
+        <script> alert('Logged in Successfully')
+        window.location=('{% url 'index' %}')
+        </script>
+    {% endifequal %}
+
+    {% ifequal error "yes" %}
+      <script>
+        alert('Invalid Login credentials, Try Again');
+        </script>
+    {% endifequal %}
+  <div class="container  mt-5">
+        <div class="row mb-5">
+            <div class="col-md-6">
+
+            </div>
+            <div class="col-md-6">
+                <h2 class="text-center">Admin login</h2>
+                <p>Login to access admin panel</p>
+                <hr>
+                <form method="post">
+                    {% csrf_token %}
+                    <label> Username </label>
+                    <input type="text" name="uname" class="form-control"   placeholder="Enter email id">
+                    <label> Password </label>
+                    <input type="password" name="passwd" class="form-control"  placeholder="Enter Password">
+                    <input type="submit" class="btn btn-danger text-white mt-3" value="Login">
+                </form>
+
+            </div>
+        </div>
+  </div>
+{% endblock %}
