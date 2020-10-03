@@ -37,6 +37,17 @@
          }
 {% endblock %}
 {% block body %}
+       {% ifequal error "no" %}
+        <script> alert('Successfully Registered')
+        window.location=('{% url 'login' %}')
+        </script>
+    {% endifequal %}
+
+    {% ifequal error "yes" %}
+      <script>
+        alert('Cant add user');
+        </script>
+    {% endifequal %}
   <div class="container  mt-3">
         <div class="row mb-5">
             <div class="col-md-6">

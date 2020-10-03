@@ -38,7 +38,7 @@
 {% endblock %}
 {% block body %}
        {% ifequal error "no" %}
-        <script> alert('Successfully logged in')
+        <script> alert('Successfully logged in {{ role }}')
         window.location=('{% url 'profile' %}')
         </script>
     {% endifequal %}

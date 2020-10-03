@@ -39,7 +39,7 @@
 {% block body %}
     {% ifequal error "no" %}
         <script> alert('Logged in Successfully')
-        window.location=('{% url 'index' %}')
+        window.location=('{% url 'admin/' %}')
         </script>
     {% endifequal %}
 

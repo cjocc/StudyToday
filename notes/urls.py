@@ -13,5 +13,7 @@ urlpatterns = [
     path('signup_fac', views.signup_fac, name="signup_fac"),
     path('logout', views.Logout, name='logout'),
     path('profile', views.profile, name='profile'),
+    path('editnotes',views.edit_notes,name="editnotes"),
+    path('explorenotes', views.explore_notes,name="explorenotes")
 ]
 
