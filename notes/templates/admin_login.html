@@ -1,6 +1,6 @@
 {% extends 'basic.html' %}
 {% load static %}
-{% block title %} About us {% endblock %}
+{% block title %} Admin Login {% endblock %}
 {% block css %}
 .col-md-3
         {
@@ -39,7 +39,7 @@
 {% block body %}
     {% ifequal error "no" %}
         <script> alert('Logged in Successfully')
-        window.location=('{% url 'admin/' %}')
+        window.location=('{% url 'index' %}')
         </script>
     {% endifequal %}
 

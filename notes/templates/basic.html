@@ -40,7 +40,7 @@
            {% if user.is_authenticated %}
             <li class="nav-item">
                 <div class="btn-group">
-                    <button type="button" class="btn btn-outline-light dropdown-toggle" data-toggle="dropdown">Welcom {{ request.user.first_name }}</button>
+                    <button type="button" class="btn btn-outline-light dropdown-toggle" data-toggle="dropdown">Welcome{{ request.user.first_name }}</button>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="#">Profile</a>
                         <a class="dropdown-item" href="#">Edit Profile</a>

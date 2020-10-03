@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from .models import *
 from django.contrib.auth import authenticate, logout, login
+from datetime import date
 
 
 from django.shortcuts import render
@@ -36,7 +37,7 @@ def login_stu(request):
 
 
 def admin_log(request):
-    error = "";
+    error = ""
     if request.method == 'POST':
         u = request.POST['uname']
         p = request.POST['passwd']
@@ -121,15 +122,35 @@ def edit_notes(request):
     role = ""
     if not request.user.is_authenticated:
         redirect('login')
-    user= User.objects.get(id=request.user.id)
-    data_Stu= Signup_stu.objects.filter(user=user)
-    data_fac= Signup_fac.objects.filter(user=user)
+    user = User.objects.get(id=request.user.id)
+    data_Stu = Signup_stu.objects.filter(user=user)
+    data_fac = Signup_fac.objects.filter(user=user)
     if data_Stu.exists():
-        role='S';
+        role = 'S'
     if data_fac.exists():
-        role='T'
-    d={'role':role}
+        role = 'T'
+    d = {'role': role}
     return render(request, 'edit_notes.html', d)
+
+
+def upload(request):
+    error = ""
+    if request.method == 'POST':
+        cat = request.POST['cat']
+        sub = request.POST['sub']
+        n = request.FILES['N_file']
+        file_type = request.POST['ftype']
+        desc = request.POST['desc']
+        us = User.objects.filter(username=request.user.username)
+        try:
+            user = Notes.objects.create(user=us, uploading_date=date.today(), category=cat, subject=sub, Note_file=n,
+                                        file_type=file_type, description=desc)
+            error = "no"
+        except:
+            error = "yes"
+    d = {'error': error}
+    return render(request, 'uploads.html', d)
+
 
 
 def explore_notes(request):
